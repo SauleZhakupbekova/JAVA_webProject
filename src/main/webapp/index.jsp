@@ -20,7 +20,7 @@
                     <div><p py-4>Hi Admin!</p></div>
                     <div class="Login"></div>
                     <div><a href="/logout">Logout</a></div>
-                </div>
+                </div>'
             </div>
         </nav>
     </header>
@@ -28,7 +28,7 @@
         <section class="menu_title">
             <a href="/students" >Students</a> <%--href всегда отрабатывает метод GET--%>
             <a href="/disciplines" >Disciplines</a>
-            <a href="">Terms</a>
+            <a href="/terms">Terms</a>
         </section>
         <div class="photo">
             <img id="photo" src="resources/img/photo.jpg" alt="" />

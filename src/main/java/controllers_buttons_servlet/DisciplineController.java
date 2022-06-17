@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerDisciplines;
+import database.DBManager;
 import entity_sql_tabs.Discipline;
 
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ public class DisciplineController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ArrayList<Discipline> disciplines = DBManagerDisciplines.getAllActiveDisciplines();
+        ArrayList<Discipline> disciplines = DBManager.getAllActiveDisciplines();
 
         req.setAttribute("disciplines", disciplines);
         req.getRequestDispatcher("WEB-INF/jsp/disciplines.jsp").forward(req, resp);

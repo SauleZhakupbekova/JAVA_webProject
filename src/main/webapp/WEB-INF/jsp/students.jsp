@@ -40,7 +40,7 @@
             </div>
             <div class="main">
                 <div class="button_groupS">
-                    <input class="button_student1S" type="submit" value="Students Assessment" onclick="">
+                    <input class="button_student1S" type="submit" value="Students Assessment" onclick="progressStudents()">
 
                     <%-- Создание кнопки "newStudent"--%>
                     <form action="/newStudent" methode="get">
@@ -69,12 +69,12 @@
                             <th class="l_col3">Group</th>
                             <th class="l_col4">Entrance</th>
                         </tr>
-                        <c:forEach items = "${students}" var="s"> <%--studentsAttribute взят из controlers (getAttributes). Var - это текущий студент, которого прсоматривает в данный момент JAVA. "s" - это самопроизвольное имя текущего студента--%>
+                        <c:forEach items = "${students}" var="s"> <%--students взят из controlers (getAttributes). Var - это текущий студент, которого прсоматривает в данный момент JAVA. "s" - это самопроизвольное имя текущего студента--%>
 
                             <%--Присвоение id студента каждому checkbox--%>
                             <tr>
                                 <td class="l_col0"><label><input name="idStudent" type="checkbox" value="${s.id}"></label></td> <%-- value="${s.id} - в фигурных скобказ мы прописываем id текущего студента s, которое будет присуждаться к каждому checkbox --%>
-                                <td class="l_col1">${s.surname}</td>
+                                <td class="l_col1">${s.surname}</td> <%-- student. мы берем с конроллера - req.setAttribute("student",);--%>
                                 <td class="l_col2">${s.name}</td>
                                 <td class="l_col3">${s.group.group}</td> <%--первый групп - это колонка с таблицы студенты, а второй групп-это колонка групп с таблицв Групп--%>
                                 <td class="l_col4"><fmt:formatDate value="${s.date}" pattern="dd/MM/yyy"/></td> <%--для того, чтобы подсоединиться к библиотеке тегов надо поставить перед значком & обревиатуру fmt--%>
@@ -93,7 +93,10 @@
 <form action="/modifiedStudent" methode="get" id="modifyForm"> <%--создаем ссылку на контроллер для удаления студентов--%>
     <input type="hidden" name="idHiddenModify" id="idHiddenModify"> <%--создаем скрытый ресурс по выделению студентов для удаления. Теперь Java Script должке заполнить его. Переходим в папку JavaScript из webapp//resources--%>
 </form>
-
+</form>                                                              <%--чтобы этот скрытый ресурс можно было найти мы присуждаем ему имя и id, id будет использовано в контролере и файле js, а имя - в базе--%>
+<form action="/studentsProgress" methode="get" id="progressForm">
+    <input type="hidden" name="idHiddenProgress" id="idHiddenProgress">
+</form>
 </html>
 
 <%-->jstl - библиотека кодов --%>

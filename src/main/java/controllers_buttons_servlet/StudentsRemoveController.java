@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerStudents;
+import database.DBManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +23,7 @@ public class StudentsRemoveController extends HttpServlet {
             String[] idsToRemove = ids.split(" "); //при формировании массива из id в JS мы указывали, что между ними будет пробел ( ids = ids + checkedCheckboxs[i].value + " "). Теперь мы используем этот пробел для разделения группы на отдельные id
 
             for(String id : idsToRemove){
-                DBManagerStudents.removeStudent(id); //передаем сюда id для удаления; removeStudent(id) мы взяли c database manager public static void removeStudent(String id)
+                DBManager.removeStudent(id); //передаем сюда id для удаления; removeStudent(id) мы взяли c database manager public static void removeStudent(String id)
             }
         resp.sendRedirect("/students");
         }

@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerStudents;
+import database.DBManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -69,12 +69,12 @@ public class NewStudentController extends HttpServlet {
         // Записываем данные пользователя в SQL --> идем в секцию database_types и там заходим в DatabaseManager где будем прописывать код для базы
 
         //достаем id группы
-        int idGroup = DBManagerStudents.getGroupId(group);
+        int idGroup = DBManager.getGroupId(group);
 
         //записываем нового студента в базу данных. для этого идем в DatabaseManager
 
         //подключаемся к SQl и создаем запись о студенте
-        DBManagerStudents.createStudent(surname, name, idGroup, dateToDatabase);
+        DBManager.createStudent(surname, name, idGroup, dateToDatabase);
 
         //перенесем на струницу список студентов, чтобы посмотреть запись
         resp.sendRedirect("/students");

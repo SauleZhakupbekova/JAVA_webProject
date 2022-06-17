@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerDisciplines;
+import database.DBManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class DisciplinesRemoveController extends HttpServlet{
             String[] idsToRemove = ids.split(" ");
 
             for(String id : idsToRemove){
-                DBManagerDisciplines.removeDiscipline(id);
+                DBManager.removeDiscipline(id);
             }
             resp.sendRedirect("/disciplines");
         }

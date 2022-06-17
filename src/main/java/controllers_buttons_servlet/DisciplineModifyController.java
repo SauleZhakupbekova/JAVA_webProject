@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerDisciplines;
+import database.DBManager;
 import entity_sql_tabs.Discipline;
 
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ public class DisciplineModifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("idHiddenModify");
-        Discipline discipline = DBManagerDisciplines.getDisciplineById(id);
+        Discipline discipline = DBManager.getDisciplineById(id);
         req.setAttribute("disciplines", discipline);
         req.getRequestDispatcher("WEB-INF/jsp/disciplineModify.jsp").forward(req, resp);
 
@@ -35,7 +35,7 @@ public class DisciplineModifyController extends HttpServlet {
             return;
         }
 
-        DBManagerDisciplines.modifyDiscipline(id, discipline);
+        DBManager.modifyDiscipline(id, discipline);
 
         resp.sendRedirect("/disciplines");
 

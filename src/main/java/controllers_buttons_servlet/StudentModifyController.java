@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerStudents;
+import database.DBManager;
 import entity_sql_tabs.Student;
 
 import javax.servlet.ServletException;
@@ -22,7 +22,7 @@ public class StudentModifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("idHiddenModify"); //idHiddenModify - берется с students.jsp, а запакованный файл уже отправляется на studentModify.jsp
-        Student student = DBManagerStudents.getStudentById(id);
+        Student student = DBManager.getStudentById(id);
         req.setAttribute("students", student); //Атрибут устанавливается имеено в контроллере
         req.getRequestDispatcher("WEB-INF/jsp/studentModify.jsp").forward(req, resp);
 
@@ -55,9 +55,9 @@ public class StudentModifyController extends HttpServlet {
         Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateToDatabase = formatter.format(dateFromUser);
 
-        int idGroup = DBManagerStudents.getGroupId(group);
+        int idGroup = DBManager.getGroupId(group);
 
-        DBManagerStudents.modifyStudent(id, surname, name, idGroup, dateToDatabase);
+        DBManager.modifyStudent(id, surname, name, idGroup, dateToDatabase);
 
         resp.sendRedirect("/students");
 

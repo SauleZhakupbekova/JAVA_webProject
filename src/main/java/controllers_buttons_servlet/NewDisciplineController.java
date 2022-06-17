@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerDisciplines;
+import database.DBManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +31,7 @@ public class NewDisciplineController extends HttpServlet {
             return;
         }
 
-        DBManagerDisciplines.createDiscipline(discipline);
+        DBManager.createDiscipline(discipline);
 
         resp.sendRedirect("/disciplines");
 

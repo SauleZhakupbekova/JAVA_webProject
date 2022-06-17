@@ -65,6 +65,7 @@ function removeDisciplines() {
     document.getElementById("removeForm").submit();
 }
 
+
 function modifyDiscipline() {
     var checkedCheckboxs = document.querySelectorAll('input[name=idDiscipline]:checked')
 
@@ -77,11 +78,30 @@ function modifyDiscipline() {
         alert("Please select ONLY one discipline");
         return;
     }
+    document.getElementById("idsHiddenModify").value = id;
+    document.getElementById("modifyForm").submit();
+}
+
+function progressStudents() {
+
+    var checkedCheckboxs = document.querySelectorAll('input[name=idStudent]:checked') //см.коммент свеоху. Либо могли бы написать [type=checkbox]
+
+    if (checkedCheckboxs.length == 0) {
+        alert("Please select at least one student");
+        return;
+    }
+
+    if (checkedCheckboxs.length > 1) {
+        alert("Please select ONLY one student");
+        return;
+    }
 
     var id = checkedCheckboxs[0].value
 
-    document.getElementById("idHiddenModify").value = id;
-    document.getElementById("modifyForm").submit();
+    document.getElementById("idHiddenProgress").value = id;
+    document.getElementById("progressForm").submit();
 }
+
+
 
 

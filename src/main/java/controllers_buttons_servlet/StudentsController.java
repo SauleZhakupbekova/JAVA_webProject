@@ -1,6 +1,6 @@
 package controllers_buttons_servlet;
 
-import database.DBManagerStudents;
+import database.DBManager;
 import entity_sql_tabs.Student;
 
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ public class StudentsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ArrayList<Student> students = DBManagerStudents.getAllActiveStudent(); //подсрединись к базе м возьми только всех активных
+        ArrayList<Student> students = DBManager.getAllActiveStudent(); //подсрединись к базе м возьми только всех активных
 
         //setAttribute - это и положить в посылку собранные с базы данные и отправить их на jsp. все данные всегда кладутся именно в request вогончик
         // setAttribute (название которые мы сами придумываем, обьект который мы передаем)

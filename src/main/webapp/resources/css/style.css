@@ -326,11 +326,12 @@ h2 {
     background: #eeeeee;
     padding-left: 5px;
     border: 1.5px solid #959595;
+    text-align: center;
 }
 
 .progress_section {
     width: 750px;
-    margin-top: 30px;
+    margin-top: 60px;
     display: flex;
     flex-direction: row;
 }
@@ -352,6 +353,7 @@ h2 {
 
 .lm_col1 {
     width: 25%;
+    text-align: center;
 }
 
 .term_average_mark {
@@ -382,6 +384,7 @@ select {
     background: #cdcdcd;
     border: 1.5px solid #000;
     outline: 0;
+
 }
 
 .average_mark {
@@ -391,8 +394,7 @@ select {
 
 h3 {
     font-size: 16px;
-    font-weight: bold;
-    margin-left: 5px;
+    font-weight: normal;
 }
 
 .discipline_title {
@@ -486,13 +488,14 @@ h3 {
     margin: 40px 0 0 70px;
     outline: 0;
     position: relative;
-    left: 123px
+    left: 123px;
 }
 
-.terms_section1 {
+.terms_section {
     width: 750px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-top: 70px;
 }
 
 .terms_title {
@@ -537,11 +540,6 @@ h3 {
     margin-bottom: 10px;
 }
 
-.terms_section2 {
-    width: 750px;
-    display: flex;
-    flex-direction: row;
-}
 
 .terms {
     width: 350px;
@@ -558,21 +556,31 @@ h3 {
     width: 400px;
 }
 
-.button_group3 {
-    height: 140px;
-    margin-left: 55px;
+.button_groupT {
+    height: 110px;
+    margin-left: 180px;
+    margin-top: 35px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.button_terms {
-    width: 230px;
+
+.button_disciplineT  {
+    width: 200px;
     height: 25px;
-    font-size: 12px;
-    background: #cdcdcd;
-    border: 1.5px solid #000;
+    font-size: 14px;
+    font-weight:bold;
+    background: lightgrey;
+    border: 1.5px solid grey;
     outline: 0;
+    cursor: pointer;
+}
+
+.button_disciplineT:hover {
+    box-shadow: inset 0 0 10px 5px rgb(0,0,0,0.5);
+    background: #eeeeee;
+    border: 1.5px solid #ffffff;
 }
 
 .line5 {
@@ -606,8 +614,10 @@ h3 {
     font-size: 12px;
     background: #cdcdcd;
     border: 1.5px solid #000;
-    margin: 25px 0 0 160px;
+    margin: 40px 0 0 70px;
     outline: 0;
+    position: relative;
+    left: 123px;
 }
 
 .h4 {
@@ -622,5 +632,11 @@ h3 {
     height: 0;
     margin-top: 100px;
     position: relative;
-    right: 870px;
+    right: 780px;
+}
+
+.tbody{
+    height: 50px;
+    margin-top: 40px;
+    position: relative;
 }
